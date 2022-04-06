@@ -6,6 +6,10 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <a class="btn btn-success mb-4" href="{{url('/formAlumno')}}"> Agregar Alumno</a>
+            <a class="btn btn-success mb-4" href="{{url('/todos')}}"> Materias por alumno</a>
+            <a class="btn btn-success mb-4" href="{{url('listMaterias')}}"> Materias</a>
+            <a class="btn btn-success mb-4" href="{{url('listGrado')}}"> Grados</a>
+            <a class="btn btn-success mb-4" href="{{url('listMG')}}"> MasteriaxGrado</a>
             <div class="text-center mb-5">
                @if(session('AlumnoDelete'))
                <div class="alert alert-success   ">
@@ -39,11 +43,11 @@
                             <td>{{$alum->grd_nombre}}</td>
                             <td>{{$alum->alm_observacion}}</td>
                             <td>
-                                <a href="{{route ('editForm', $alum->alm_id)}}" class="btn btn-primary">Editar</a>
+                                <a href="{{route ('editForm', $alum->alm_id)}}" class="btn btn-warning btn-sm">Editar</a><br><br>
                                 <form action="{{route('delete', $alum->alm_id)}}" method="POST">
                                     @csrf @method('DELETE')
 
-                                    <button type="submit" onclick="return confirm('¿borrar?');" class="btn btn-danger">DELETE</button>
+                                    <button type="submit" onclick="return confirm('¿borrar?');" class="btn btn-danger btn-sm">DELETE</button>
                                 </form>
                             </td>
                         </tr>
